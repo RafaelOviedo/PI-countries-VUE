@@ -1,5 +1,5 @@
 <template>
-    <form>Activity form</form>
+    <form class="activityTitle">Activity form</form>
 </template>
 
 <script>
@@ -8,4 +8,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.activityTitle {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+}
+</style>
