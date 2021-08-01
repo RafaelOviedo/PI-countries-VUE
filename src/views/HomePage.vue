@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p class="homeTitle">COUNTRIES:</p>
+        <!-- <p class="homeTitle">COUNTRIES:</p> -->
         <ul class="countriesBox">
             <li
                 v-for="country in allCountries"
@@ -8,20 +8,31 @@
                 class="countryCard"
             >
                 <br />
-                Name: {{ country.name }}
+                <p class="countryName">{{ country.name }}</p>
                 <br />
-                Continent: {{ country.continent }}
+                <p class="countryContinent">
+                    {{ country.continent }}
+                </p>
+                <br />
+                <img
+                    :src="`${country.flagImage}`"
+                    alt="country flag"
+                    class="flagImage"
+                />
             </li>
         </ul>
+        <FiltersBar />
     </div>
 </template>
 
 <script>
+import FiltersBar from "../components/FiltersBar.vue";
 import { mapState } from "vuex";
 import store from "../store";
 
 export default {
     name: "HomePage",
+    components: { FiltersBar },
     mounted() {
         store.dispatch("getAllCountries");
     },
@@ -35,7 +46,7 @@ export default {
 .homeTitle {
     position: absolute;
     top: 10%;
-    left: 45%;
+    left: 46.8%;
 }
 
 .countriesBox {
@@ -43,19 +54,37 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 1%;
     width: 95%;
-    height: 80vh;
+    height: 70vh;
     border: 2px solid black;
     overflow: scroll;
+}
+.countriesBox::-webkit-scrollbar {
+    display: none;
 }
 
 .countryCard {
     list-style-type: none;
     border: 1px solid black;
-    width: 20%;
+    width: 30%;
     height: 30%;
     margin-bottom: 2%;
+    margin-right: 3%;
+}
+
+.countryName {
+    transform: translate(0%, -150%);
+}
+
+.countryContinent {
+    transform: translate(0%, -400%);
+}
+
+.flagImage {
+    transform: translate(0%, -130%);
+    width: 30%;
+    height: 50%;
 }
 </style>
