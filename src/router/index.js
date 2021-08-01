@@ -3,6 +3,7 @@ import LandingPage from "../views/LandingPage.vue";
 import HomePage from "../views/HomePage.vue";
 import ActivityCreation from "../views/ActivityCreation.vue";
 import About from "../views/About.vue";
+import CountryDetail from "../views/CountryDetail.vue";
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: "/about",
         name: "About",
         component: About,
+    },
+    {
+        path: "/countryDetail/:id",
+        name: "CountryDetail",
+        component: CountryDetail,
     },
 ];
 

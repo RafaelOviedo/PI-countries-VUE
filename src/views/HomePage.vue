@@ -8,7 +8,11 @@
                 class="countryCard"
             >
                 <br />
-                <p class="countryName">{{ country.name }}</p>
+                <router-link
+                    :to="{ name: 'CountryDetail', params: { id: country.Id } }"
+                    class="countryName"
+                    >{{ country.name }}</router-link
+                >
                 <br />
                 <p class="countryContinent">
                     {{ country.continent }}
@@ -79,11 +83,11 @@ export default {
 }
 
 .countryContinent {
-    transform: translate(0%, -400%);
+    transform: translate(0%, -1050%);
 }
 
 .flagImage {
-    transform: translate(0%, -130%);
+    transform: translate(0%, -50%);
     width: 30%;
     height: 50%;
 }
