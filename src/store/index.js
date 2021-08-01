@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 const store = createStore({
     state: {
@@ -6,9 +7,20 @@ const store = createStore({
         countryId: {},
     },
 
-    mutations: {},
+    mutations: {
+        getAllCountries(state, payload) {
+            state.allCountries = payload;
+        },
+    },
 
-    actions: {},
+    actions: {
+        async getAllCountries({ commit }) {
+            const response = await axios.get(
+                "http://localhost:3001/countries/countries"
+            );
+            commit("getAllCountries", response.data);
+        },
+    },
 
     getters: {},
 
