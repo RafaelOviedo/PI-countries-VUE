@@ -58,10 +58,10 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 1%;
-    width: 95%;
-    height: 70vh;
+    width: 70%;
+    height: 77vh;
     border: 2px solid black;
     overflow: scroll;
 }
@@ -73,7 +73,7 @@ export default {
     list-style-type: none;
     border: 1px solid black;
     width: 30%;
-    height: 30%;
+    height: 35%;
     margin-bottom: 2%;
     margin-right: 3%;
 }
@@ -87,8 +87,9 @@ export default {
 }
 
 .flagImage {
-    transform: translate(0%, -50%);
+    transform: translate(0%, -60%);
     width: 30%;
-    height: 50%;
+    height: 45%;
+    border: 3px solid black;
 }
 </style>

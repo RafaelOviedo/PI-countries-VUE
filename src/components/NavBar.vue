@@ -28,28 +28,29 @@ export default {
 .navBar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 10vh;
-    background: lightblue;
+    left: 5%;
+    width: 90%;
+    height: 13vh;
+    border-bottom: 2px solid black;
 }
 
 .logo {
-    transform: translate(-30%, 120%);
+    transform: translate(-30%, 190%);
+    font-weight: bold;
 }
 
 .itemsBox {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    transform: translate(190%, -48%);
+    transform: translate(190%, -38%);
     width: 30%;
     height: 100%;
 }
 
 .navItem {
     text-decoration: none;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 </style>
