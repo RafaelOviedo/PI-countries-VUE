@@ -25,6 +25,12 @@
                 />
             </li>
         </ul>
+
+        <div class="backAndForwardButtons">
+            <button>&#10094;</button>
+            <button>&#10095;</button>
+        </div>
+
         <FiltersBar />
     </div>
 </template>
@@ -61,7 +67,7 @@ export default {
     top: 15%;
     left: 1%;
     width: 70%;
-    height: 77vh;
+    height: 70vh;
     border: 2px solid black;
     overflow: scroll;
 }
@@ -73,7 +79,7 @@ export default {
     list-style-type: none;
     border: 1px solid black;
     width: 30%;
-    height: 35%;
+    height: 30%;
     margin-bottom: 2%;
     margin-right: 3%;
 }
@@ -83,13 +89,22 @@ export default {
 }
 
 .countryContinent {
-    transform: translate(0%, -1050%);
+    transform: translate(0%, -1100%);
 }
 
 .flagImage {
-    transform: translate(0%, -60%);
+    transform: translate(0%, -50%);
     width: 30%;
-    height: 45%;
+    height: 40%;
     border: 3px solid black;
+}
+
+.backAndForwardButtons {
+    display: flex;
+    justify-content: space-evenly;
+    transform: translate(200%, 1650%);
+    width: 15%;
+    height: 5vh;
+    background: tomato;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
     <div class="filtersBox">
+        <SearchBar />
+
+        <p class="filterByTitle">Filter By</p>
         <div class="continentsButtons">
-            <p>By Continent:</p>
+            <p>Continent:</p>
             <button class="cBtn">Americas</button>
             <button class="cBtn">Europa</button>
             <button class="cBtn">Africa</button>
@@ -9,19 +12,34 @@
             <button class="cBtn">Oceania</button>
         </div>
         <div class="activitiesButtons">
-            <p>By Activity:</p>
+            <p>Activity:</p>
             <button class="cBtn">Parachute</button>
             <button class="cBtn">Horse</button>
             <button class="cBtn">Sky Diving</button>
             <button class="cBtn">Ski</button>
             <button class="cBtn">Running</button>
         </div>
+
+        <p class="orderByTitle">Order By</p>
+        <div class="byLetterButtons">
+            <p>Letter:</p>
+            <button class="cBtn">From A to Z</button>
+            <button class="cBtn">From Z to A</button>
+        </div>
+        <div class="byPopulationButtons">
+            <p>Population:</p>
+            <button class="cBtn">From highest</button>
+            <button class="cBtn">From lower</button>
+        </div>
     </div>
 </template>
 
 <script>
+import SearchBar from "../components/SearchBar.vue";
+
 export default {
     name: "FiltersBar",
+    components: { SearchBar },
 };
 </script>
 
@@ -31,24 +49,68 @@ export default {
     top: 17%;
     right: 0;
     width: 25%;
-    height: 78vh;
-    background: gray;
+    height: 77vh;
+    border: 2px solid black;
+    border-right: none;
     border-radius: 30px 0 0 30px;
+    overflow: scroll;
+}
+.filtersBox::-webkit-scrollbar {
+    display: none;
 }
 
 .continentsButtons {
-    transform: translate(30%, 45%);
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translate(20%, 10%);
+    width: 40%;
     height: 40%;
-    background: lightgray;
     border-radius: 20px;
 }
 
 .activitiesButtons {
-    transform: translate(200%, -80%);
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translate(140%, -90%);
+    width: 40%;
     height: 40%;
-    background: lightgray;
     border-radius: 20px;
+}
+
+.byLetterButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translate(20%, -170%);
+    width: 40%;
+    height: 20%;
+    border-radius: 20px;
+}
+
+.byPopulationButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translate(140%, -270%);
+    width: 40%;
+    height: 20%;
+    border-radius: 20px;
+}
+
+.cBtn {
+    background: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.filterByTitle {
+    transform: translate(0%, 200%);
+}
+
+.orderByTitle {
+    transform: translate(0%, -1000%);
 }
 </style>
