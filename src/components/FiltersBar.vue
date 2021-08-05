@@ -65,11 +65,10 @@ export default {
     top: 17%;
     right: 0;
     width: 25%;
-    height: 77vh;
+    height: 70vh;
     border: 2px solid black;
     border-right: none;
     border-radius: 30px 0 0 30px;
-    overflow: scroll;
 }
 .filtersBox::-webkit-scrollbar {
     display: none;
@@ -79,7 +78,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(20%, 10%);
+    transform: translate(20%, 0%);
     width: 40%;
     height: 40%;
     border-radius: 20px;
@@ -89,7 +88,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(140%, -90%);
+    transform: translate(140%, -100%);
     width: 40%;
     height: 40%;
     border-radius: 20px;
@@ -99,7 +98,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(20%, -170%);
+    transform: translate(20%, -200%);
     width: 40%;
     height: 20%;
     border-radius: 20px;
@@ -109,7 +108,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(140%, -270%);
+    transform: translate(140%, -300%);
     width: 40%;
     height: 20%;
     border-radius: 20px;
@@ -123,10 +122,10 @@ export default {
 }
 
 .filterByTitle {
-    transform: translate(0%, 200%);
+    transform: translate(0%, 170%);
 }
 
 .orderByTitle {
-    transform: translate(0%, -1000%);
+    transform: translate(0%, -950%);
 }
 </style>
