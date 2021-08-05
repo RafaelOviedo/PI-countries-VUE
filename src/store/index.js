@@ -11,6 +11,10 @@ const store = createStore({
         getAllCountries(state, payload) {
             state.allCountries = payload;
         },
+
+        getCountryByName(state, payload) {
+            state.allCountries = payload;
+        },
     },
 
     actions: {
@@ -19,6 +23,14 @@ const store = createStore({
                 "http://localhost:3001/countries/countries"
             );
             commit("getAllCountries", response.data);
+        },
+
+        async getCountryByName({ commit }, payload) {
+            const response = await axios.get(
+                "http://localhost:3001/countries?name=" + payload
+            );
+            console.log(response.data);
+            commit("getCountryByName", response.data);
         },
     },
 
