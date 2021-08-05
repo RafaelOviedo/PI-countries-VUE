@@ -15,6 +15,12 @@ const store = createStore({
         getCountryByName(state, payload) {
             state.allCountries = payload;
         },
+
+        filterByContinent(state, payload) {
+            state.allCountries = state.allCountries.filter(
+                (country) => country.continent === payload
+            );
+        },
     },
 
     actions: {

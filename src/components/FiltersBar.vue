@@ -5,11 +5,21 @@
         <p class="filterByTitle">Filter By</p>
         <div class="continentsButtons">
             <p>Continent:</p>
-            <button class="cBtn">Americas</button>
-            <button class="cBtn">Europa</button>
-            <button class="cBtn">Africa</button>
-            <button class="cBtn">Asia</button>
-            <button class="cBtn">Oceania</button>
+            <button @click="filterByContinent('Americas')" class="cBtn">
+                Americas
+            </button>
+            <button @click="filterByContinent('Europe')" class="cBtn">
+                Europe
+            </button>
+            <button @click="filterByContinent('Africa')" class="cBtn">
+                Africa
+            </button>
+            <button @click="filterByContinent('Asia')" class="cBtn">
+                Asia
+            </button>
+            <button @click="filterByContinent('Oceania')" class="cBtn">
+                Oceania
+            </button>
         </div>
         <div class="activitiesButtons">
             <p>Activity:</p>
@@ -36,10 +46,16 @@
 
 <script>
 import SearchBar from "../components/SearchBar.vue";
+import store from "../store/index";
 
 export default {
     name: "FiltersBar",
     components: { SearchBar },
+    methods: {
+        filterByContinent(continentName) {
+            store.commit("filterByContinent", continentName);
+        },
+    },
 };
 </script>
 

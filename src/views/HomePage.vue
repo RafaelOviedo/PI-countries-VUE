@@ -14,9 +14,7 @@
                     >{{ country.name }}</router-link
                 >
                 <br />
-                <p class="countryContinent">
-                    {{ country.continent }}
-                </p>
+                <p class="countryContinent">{{ country.continent }}</p>
                 <br />
                 <img
                     :src="`${country.flagImage}`"
@@ -89,7 +87,7 @@ export default {
 }
 
 .countryContinent {
-    transform: translate(0%, -1100%);
+    transform: translate(0%, -1000%);
 }
 
 .flagImage {
