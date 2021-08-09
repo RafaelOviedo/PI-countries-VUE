@@ -1,9 +1,9 @@
 <template>
     <div>
         <!-- <p class="homeTitle">COUNTRIES:</p> -->
-        <ul class="countriesBox" v-if="allCountries">
+        <ul class="countriesBox">
             <li
-                v-for="country in allCountries"
+                v-for="country in countries"
                 :key="country.id"
                 class="countryCard"
             >
@@ -38,7 +38,7 @@
 
 <script>
 import FiltersBar from "../components/FiltersBar.vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import store from "../store";
 
 export default {
@@ -48,8 +48,7 @@ export default {
         store.dispatch("getAllCountries");
     },
     computed: {
-        ...mapState(["allCountries"]),
-        ...mapState(["filteredCountries"]),
+        ...mapGetters(["countries"]),
     },
 };
 </script>

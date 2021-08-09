@@ -82,7 +82,13 @@ const store = createStore({
         },
     },
 
-    getters: {},
+    getters: {
+        countries: (state) => {
+            return state.filteredCountries.length
+                ? state.filteredCountries
+                : state.allCountries;
+        },
+    },
 
     modules: {},
 });
