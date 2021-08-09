@@ -1,5 +1,36 @@
 <template>
-    <div>Country Detail</div>
+    <div>
+        <div class="countryDetailContainer">
+            <h3>Country Detail</h3>
+            <div class="countryDetailBox">
+                <p>Name: {{ countryDetail.name }}</p>
+                <p>Capital: {{ countryDetail.capital }}</p>
+                <p>Continent: {{ countryDetail.continent }}</p>
+                <p>Sub Region: {{ countryDetail.subRegion }}</p>
+                <p>Population: {{ countryDetail.population }}</p>
+                <img
+                    :src="`${countryDetail.flagImage}`"
+                    alt="Flag"
+                    class="flagImage"
+                />
+            </div>
+            <ul class="countryActivitiesBox">
+                <h3 class="activitiesTitle">Activity/ies</h3>
+                <li
+                    v-for="(activity, id) in countryDetail.activities"
+                    :key="id"
+                    class="listItem"
+                >
+                    <div class="itemsBox">
+                        <p>Name: {{ activity.name }}</p>
+                        <p>Difficulty: {{ activity.difficulty }}</p>
+                        <p>Duration: {{ activity.duration }}</p>
+                        <p>Season: {{ activity.season }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -20,4 +51,56 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.countryDetailContainer {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    height: 70vh;
+    border: 1px solid black;
+}
+
+.countryDetailBox {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.countryActivitiesBox {
+    position: absolute;
+    top: 7.5%;
+    left: 60%;
+    width: 30%;
+    height: 80%;
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+.activitiesTitle {
+    position: relative;
+    left: -7%;
+}
+
+.itemsBox {
+    transform: translate(5%);
+    width: 80%;
+    height: 80%;
+    border: 1px solid black;
+    margin-bottom: 3%;
+}
+
+.flagImage {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 45%;
+}
+
+.listItem {
+    list-style-type: none;
+}
+</style>
