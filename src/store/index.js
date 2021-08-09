@@ -5,7 +5,7 @@ const store = createStore({
     state: {
         allCountries: [],
         filteredCountries: [],
-        countryId: {},
+        countryDetail: {},
     },
 
     mutations: {
@@ -15,6 +15,10 @@ const store = createStore({
 
         getCountryByName(state, payload) {
             state.allCountries = payload;
+        },
+
+        getCountryById(state, payload) {
+            state.countryDetail = payload;
         },
 
         filterByContinent(state, payload) {
@@ -67,6 +71,14 @@ const store = createStore({
             );
             console.log(response.data);
             commit("getCountryByName", response.data);
+        },
+
+        async getCountryById({ commit }, payload) {
+            const response = await axios.get(
+                "http://localhost:3001/countries/" + payload
+            );
+            console.log(response.data);
+            commit("getCountryById", response.data);
         },
     },
 
