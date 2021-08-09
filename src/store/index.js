@@ -4,6 +4,7 @@ import axios from "axios";
 const store = createStore({
     state: {
         allCountries: [],
+        filteredCountries: [],
         countryId: {},
     },
 
@@ -17,9 +18,38 @@ const store = createStore({
         },
 
         filterByContinent(state, payload) {
-            state.allCountries = state.allCountries.filter(
+            let countries = [...state.allCountries];
+            state.filteredCountries = countries.filter(
                 (country) => country.continent === payload
             );
+        },
+
+        orderFromAtoZ(state) {
+            state.allCountries.sort((a, b) => {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                return 0;
+            });
+        },
+
+        orderFromZtoA(state) {
+            state.allCountries.sort((a, b) => {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+                return 0;
+            });
+        },
+
+        orderFromLowestToHighest(state) {
+            state.allCountries.sort((a, b) => {
+                return a.population - b.population;
+            });
+        },
+
+        orderFromHighestToLowest(state) {
+            state.allCountries.sort((a, b) => {
+                return b.population - a.population;
+            });
         },
     },
 

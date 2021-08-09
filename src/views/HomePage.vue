@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <p class="homeTitle">COUNTRIES:</p> -->
-        <ul class="countriesBox">
+        <ul class="countriesBox" v-if="allCountries">
             <li
                 v-for="country in allCountries"
                 :key="country.id"
@@ -9,7 +9,10 @@
             >
                 <br />
                 <router-link
-                    :to="{ name: 'CountryDetail', params: { id: country.Id } }"
+                    :to="{
+                        name: 'CountryDetail',
+                        params: { id: country.Id },
+                    }"
                     class="countryName"
                     >{{ country.name }}</router-link
                 >
@@ -46,6 +49,7 @@ export default {
     },
     computed: {
         ...mapState(["allCountries"]),
+        ...mapState(["filteredCountries"]),
     },
 };
 </script>
@@ -87,7 +91,7 @@ export default {
 }
 
 .countryContinent {
-    transform: translate(0%, -1000%);
+    transform: translate(0%, -50%);
 }
 
 .flagImage {
@@ -103,6 +107,6 @@ export default {
     transform: translate(200%, 1650%);
     width: 15%;
     height: 5vh;
-    background: tomato;
+    /* background: tomato; */
 }
 </style>

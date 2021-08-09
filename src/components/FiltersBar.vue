@@ -33,13 +33,17 @@
         <p class="orderByTitle">Order By</p>
         <div class="byLetterButtons">
             <p>Letter:</p>
-            <button class="cBtn">From A to Z</button>
-            <button class="cBtn">From Z to A</button>
+            <button class="cBtn" @click="orderFromAtoZ">From A to Z</button>
+            <button class="cBtn" @click="orderFromZtoA">From Z to A</button>
         </div>
         <div class="byPopulationButtons">
             <p>Population:</p>
-            <button class="cBtn">From highest</button>
-            <button class="cBtn">From lower</button>
+            <button class="cBtn" @click="orderFromHighestToLowest">
+                From highest
+            </button>
+            <button class="cBtn" @click="orderFromLowestToHighest">
+                From lowest
+            </button>
         </div>
     </div>
 </template>
@@ -54,6 +58,22 @@ export default {
     methods: {
         filterByContinent(continentName) {
             store.commit("filterByContinent", continentName);
+        },
+
+        orderFromAtoZ() {
+            store.commit("orderFromAtoZ");
+        },
+
+        orderFromZtoA() {
+            store.commit("orderFromZtoA");
+        },
+
+        orderFromLowestToHighest() {
+            store.commit("orderFromLowestToHighest");
+        },
+
+        orderFromHighestToLowest() {
+            store.commit("orderFromHighestToLowest");
         },
     },
 };
