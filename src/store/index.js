@@ -80,6 +80,10 @@ const store = createStore({
             console.log(response.data);
             commit("getCountryById", response.data);
         },
+
+        createActivity(payload) {
+            axios.post("http://localhost:3001/activity/", payload);
+        },
     },
 
     getters: {

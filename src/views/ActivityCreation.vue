@@ -1,6 +1,17 @@
 <template>
     <div>
-        <form class="formBox">
+        <form
+            class="formBox"
+            @submit.prevent="
+                submitForm({
+                    countryName: selectInput,
+                    name: nameInput,
+                    difficulty: difficultyInput,
+                    duration: durationInput,
+                    season: seasonInput,
+                })
+            "
+        >
             <br />
             <label for="countryName"
                 >Select the countries where you can do this activity</label
@@ -44,6 +55,7 @@
 
 <script>
 import { mapState } from "vuex";
+import store from "../store/index";
 
 export default {
     name: "ActivityCreation",
@@ -59,8 +71,13 @@ export default {
     methods: {
         pushCountry(event) {
             if (event.target.name === this.country.name) {
-                this.selectInput.push(event.target.value);
+                this.selectInput.push({ name: event.target.value });
             }
+        },
+
+        submitForm(payload) {
+            store.dispatch("createActivity", payload);
+            alert("Activity created");
         },
     },
     computed: {
