@@ -1,17 +1,110 @@
 <template>
-    <form class="activityTitle">Activity form</form>
+    <div>
+        <form class="formBox">
+            <br />
+            <label for="countryName"
+                >Select the countries where you can do this activity</label
+            >
+            <select
+                type="text"
+                name="countryName"
+                class="selectInput"
+                v-model="selectInput"
+            >
+                <option
+                    v-for="(country, id) in allCountries"
+                    :key="id"
+                    @click="pushCountry()"
+                    >{{ country.name }}</option
+                >
+            </select>
+            <br />
+
+            <label for="">Activity Name</label>
+            <input type="text" class="textInputs" v-model="nameInput" />
+            <br />
+
+            <label for="">Difficulty</label>
+            <input type="text" class="textInputs" v-model="difficultyInput" />
+            <br />
+
+            <label for="">Duration</label>
+            <input type="text" class="textInputs" v-model="durationInput" />
+            <br />
+
+            <label for="">Season</label>
+            <input type="text" class="textInputs" v-model="seasonInput" />
+            <br />
+            <br />
+            <input type="submit" class="buttonInput" />
+            <br />
+        </form>
+    </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
     name: "ActivityCreation",
+    data() {
+        return {
+            selectInput: [],
+            nameInput: "",
+            difficultyInput: "",
+            durationInput: "",
+            seasonInput: "",
+        };
+    },
+    methods: {
+        pushCountry(event) {
+            if (event.target.name === this.country.name) {
+                this.selectInput.push(event.target.value);
+            }
+        },
+    },
+    computed: {
+        ...mapState(["allCountries"]),
+    },
 };
 </script>
 
 <style scoped>
-.activityTitle {
+.formBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: absolute;
-    top: 30%;
-    left: 45%;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+    height: 70vh;
+    border: 3px solid black;
+}
+
+.selectInput {
+    transform: translate(50%);
+    width: 50%;
+    height: 5%;
+    border-radius: 15px;
+    border: 2px solid black;
+    outline: none;
+}
+
+.textInputs {
+    transform: translate(30%);
+    width: 60%;
+    height: 5%;
+    border-radius: 15px;
+    border: 2px solid black;
+    outline: none;
+}
+
+.buttonInput {
+    transform: translate(116%);
+    width: 30%;
+    height: 8%;
+    border-radius: 25px;
+    border: 2px solid black;
 }
 </style>
