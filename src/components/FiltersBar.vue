@@ -31,7 +31,7 @@
                 Horse
             </button>
             <button @click="filterByActivity('surf')" class="cBtn">
-                Sky Diving
+                Surf
             </button>
             <button @click="filterByActivity('ski')" class="cBtn">
                 Ski
