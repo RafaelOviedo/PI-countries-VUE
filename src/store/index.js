@@ -29,15 +29,12 @@ const store = createStore({
         },
 
         filterByActivity(state, payload) {
-            let countries = [...state.allCountries]
+            let countries = [...state.allCountries];
             let filteredCountries2 = [];
 
             for(let i = 0; i < countries.length; i++) {
-
                 if(countries[i].activities.length) {
-
                     for(let j = 0; j < countries[i].activities.length; j++) {
-
                         if(countries[i].activities[j].name === payload) {
                             filteredCountries2.push(countries[i]);
                         }

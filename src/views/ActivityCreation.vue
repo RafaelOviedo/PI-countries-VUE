@@ -25,7 +25,7 @@
                 <option
                     v-for="(country, id) in allCountries"
                     :key="id"
-                    @click="pushCountry()"
+                    @click="pushCountry($event)"
                     >{{ country.name }}</option
                 >
             </select>
@@ -61,7 +61,8 @@ export default {
     name: "ActivityCreation",
     data() {
         return {
-            selectInput: [],
+            selectInput: "",
+            selectInputArray: [],
             nameInput: "",
             difficultyInput: "",
             durationInput: "",
@@ -70,9 +71,8 @@ export default {
     },
     methods: {
         pushCountry(event) {
-            if (event.target.name === this.country.name) {
-                this.selectInput.push({ name: event.target.value });
-            }
+            this.selectInputArray = [...this.selectInputArray, event.target.value];
+            console.log(event.target.value)
         },
 
         submitForm(payload) {
