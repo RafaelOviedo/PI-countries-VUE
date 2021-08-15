@@ -21,13 +21,24 @@
                 Oceania
             </button>
         </div>
+
         <div class="activitiesButtons">
             <p>Activity:</p>
-            <button class="cBtn">Parachute</button>
-            <button class="cBtn">Horse</button>
-            <button class="cBtn">Sky Diving</button>
-            <button class="cBtn">Ski</button>
-            <button class="cBtn">Running</button>
+            <button @click="filterByActivity('parachute')" class="cBtn">
+                Parachute
+            </button>
+            <button @click="filterByActivity('horse')" class="cBtn">
+                Horse
+            </button>
+            <button @click="filterByActivity('surf')" class="cBtn">
+                Sky Diving
+            </button>
+            <button @click="filterByActivity('ski')" class="cBtn">
+                Ski
+            </button>
+            <button @click="filterByActivity('running')" class="cBtn">
+                Running
+            </button>
         </div>
 
         <p class="orderByTitle">Order By</p>
@@ -58,6 +69,10 @@ export default {
     methods: {
         filterByContinent(continentName) {
             store.commit("filterByContinent", continentName);
+        },
+
+        filterByActivity(activityName) {
+            store.commit("filterByActivity", activityName);
         },
 
         orderFromAtoZ() {

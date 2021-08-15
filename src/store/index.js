@@ -28,6 +28,15 @@ const store = createStore({
             );
         },
 
+        filterByActivity() {
+            // let countries = [...state.allCountries];
+            // state.filteredCountries = countries.filter(
+            //     (country) => country.activities[0].name === payload
+            // ); 
+            //     console.log(state.filteredCountries)
+            //NOT WORKING
+        },
+
         orderFromAtoZ(state) {
             state.allCountries.sort((a, b) => {
                 if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
@@ -81,8 +90,8 @@ const store = createStore({
             commit("getCountryById", response.data);
         },
 
-        createActivity(payload) {
-            axios.post("http://localhost:3001/activity/", payload);
+        async createActivity(payload) {
+            await axios.post("http://localhost:3001/activity/", payload);
         },
     },
 
