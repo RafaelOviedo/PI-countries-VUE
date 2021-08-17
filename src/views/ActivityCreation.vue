@@ -4,11 +4,11 @@
             class="formBox"
             @submit.prevent="
                 submitForm({
-                    countryName: selectInput,
-                    name: nameInput,
-                    difficulty: difficultyInput,
-                    duration: durationInput,
-                    season: seasonInput,
+                    countryName: input.selectInput,
+                    name: input.nameInput,
+                    difficulty: input.difficultyInput,
+                    duration: input.durationInput,
+                    season: input.seasonInput,
                 })
             "
         >
@@ -20,31 +20,32 @@
                 type="text"
                 name="countryName"
                 class="selectInput"
-                v-model="selectInput"
-            >
+                v-model="input.selectInput" 
+                multiple="true"
+            > 
                 <option
                     v-for="(country, id) in allCountries"
                     :key="id"
-                    @click="pushCountry($event)"
+                    :value="`${country.name}`"
                     >{{ country.name }}</option
                 >
             </select>
             <br />
 
             <label for="">Activity Name</label>
-            <input type="text" class="textInputs" v-model="nameInput" />
+            <input type="text" class="textInputs" v-model="input.nameInput" />
             <br />
 
             <label for="">Difficulty</label>
-            <input type="text" class="textInputs" v-model="difficultyInput" />
+            <input type="text" class="textInputs" v-model="input.difficultyInput" />
             <br />
 
             <label for="">Duration</label>
-            <input type="text" class="textInputs" v-model="durationInput" />
+            <input type="text" class="textInputs" v-model="input.durationInput" />
             <br />
 
             <label for="">Season</label>
-            <input type="text" class="textInputs" v-model="seasonInput" />
+            <input type="text" class="textInputs" v-model="input.seasonInput" />
             <br />
             <br />
             <input type="submit" class="buttonInput" />
@@ -61,20 +62,16 @@ export default {
     name: "ActivityCreation",
     data() {
         return {
-            selectInput: "",
-            selectInputArray: [],
+            input: {
+            selectInput: [],
             nameInput: "",
             difficultyInput: "",
             durationInput: "",
             seasonInput: "",
+            }
         };
     },
     methods: {
-        pushCountry(event) {
-            this.selectInputArray = [...this.selectInputArray, event.target.value];
-            console.log(event.target.value)
-        },
-
         submitForm(payload) {
             store.dispatch("createActivity", payload);
             alert("Activity created");
@@ -86,6 +83,7 @@ export default {
 };
 </script>
 
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style scoped>
 .formBox {
     display: flex;
@@ -102,7 +100,7 @@ export default {
 .selectInput {
     transform: translate(50%);
     width: 50%;
-    height: 5%;
+    height: 15%;
     border-radius: 15px;
     border: 2px solid black;
     outline: none;

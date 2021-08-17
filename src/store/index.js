@@ -100,6 +100,7 @@ const store = createStore({
 
         async createActivity(payload) {
             await axios.post("http://localhost:3001/activity/", payload);
+            console.log("ENTRO")
         },
     },
 
