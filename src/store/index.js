@@ -51,10 +51,20 @@ const store = createStore({
                 if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
                 return 0;
             });
+            state.filteredCountries.sort((a, b) => {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                return 0;
+            });
         },
 
         orderFromZtoA(state) {
             state.allCountries.sort((a, b) => {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+                return 0;
+            });
+            state.filteredCountries.sort((a, b) => {
                 if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
                 if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
                 return 0;
@@ -65,10 +75,16 @@ const store = createStore({
             state.allCountries.sort((a, b) => {
                 return a.population - b.population;
             });
+            state.filteredCountries.sort((a, b) => {
+                return a.population - b.population;
+            });
         },
 
         orderFromHighestToLowest(state) {
             state.allCountries.sort((a, b) => {
+                return b.population - a.population;
+            });
+            state.filteredCountries.sort((a, b) => {
                 return b.population - a.population;
             });
         },
@@ -96,11 +112,6 @@ const store = createStore({
             );
             console.log(response.data);
             commit("getCountryById", response.data);
-        },
-
-        async createActivity(payload) {
-            await axios.post("http://localhost:3001/activity/", payload);
-            console.log("ENTRO")
         },
     },
 

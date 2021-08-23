@@ -3,13 +3,7 @@
         <form
             class="formBox"
             @submit.prevent="
-                submitForm({
-                    countryName: input.selectInput,
-                    name: input.nameInput,
-                    difficulty: input.difficultyInput,
-                    duration: input.durationInput,
-                    season: input.seasonInput,
-                })
+                createActivity(input)
             "
         >
             <br />
@@ -17,10 +11,9 @@
                 >Select the countries where you can do this activity</label
             >
             <select
-                type="text"
                 name="countryName"
                 class="selectInput"
-                v-model="input.selectInput" 
+                v-model="input.countryName" 
                 multiple="true"
             > 
                 <option
@@ -33,19 +26,19 @@
             <br />
 
             <label for="">Activity Name</label>
-            <input type="text" class="textInputs" v-model="input.nameInput" />
+            <input type="text" class="textInputs" v-model="input.name" />
             <br />
 
             <label for="">Difficulty</label>
-            <input type="text" class="textInputs" v-model="input.difficultyInput" />
+            <input type="text" class="textInputs" v-model="input.difficulty" />
             <br />
 
             <label for="">Duration</label>
-            <input type="text" class="textInputs" v-model="input.durationInput" />
+            <input type="text" class="textInputs" v-model="input.duration" />
             <br />
 
             <label for="">Season</label>
-            <input type="text" class="textInputs" v-model="input.seasonInput" />
+            <input type="text" class="textInputs" v-model="input.season" />
             <br />
             <br />
             <input type="submit" class="buttonInput" />
@@ -56,25 +49,26 @@
 
 <script>
 import { mapState } from "vuex";
-import store from "../store/index";
+// import store from "../store/index";
+import axios from "axios";
 
 export default {
     name: "ActivityCreation",
     data() {
         return {
             input: {
-            selectInput: [],
-            nameInput: "",
-            difficultyInput: "",
-            durationInput: "",
-            seasonInput: "",
+            countryName: [],
+            name: "",
+            difficulty: "",
+            duration: "",
+            season: "",
             }
         };
     },
     methods: {
-        submitForm(payload) {
-            store.dispatch("createActivity", payload);
-            alert("Activity created");
+        async createActivity(payload) {
+            await axios.post("http://localhost:3001/activity/", payload);
+            alert("Activity created!")
         },
     },
     computed: {
@@ -83,7 +77,6 @@ export default {
 };
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style scoped>
 .formBox {
     display: flex;
