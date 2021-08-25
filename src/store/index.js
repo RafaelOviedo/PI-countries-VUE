@@ -11,6 +11,7 @@ const store = createStore({
     mutations: {
         getAllCountries(state, payload) {
             state.allCountries = payload;
+            state.filteredCountries = []
         },
 
         getCountryByName(state, payload) {
@@ -88,6 +89,10 @@ const store = createStore({
                 return b.population - a.population;
             });
         },
+
+        refreshCountries(state) {
+            state.filteredCountries = [];
+        }
     },
 
     actions: {
@@ -113,6 +118,10 @@ const store = createStore({
             console.log(response.data);
             commit("getCountryById", response.data);
         },
+
+        refreshCountries({ commit }) {
+            commit("refreshCountries");
+        }
     },
 
     getters: {
