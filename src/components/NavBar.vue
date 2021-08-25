@@ -1,6 +1,11 @@
 <template>
     <div>
-        <nav class="navBar">
+        <nav class="navBar"> 
+           <router-link 
+           class="backBtn navItem"
+           :to="{ name: 'LandingPage'}">
+               &#10094; Back
+           </router-link>
             <div class="logo">LOGO</div>
             <ul class="itemsBox">
                 <router-link class="navItem" :to="{ name: 'HomePage' }"
@@ -35,8 +40,9 @@ export default {
 }
 
 .logo {
-    transform: translate(-30%, 190%);
+    transform: translate(200%, 190%);
     font-weight: bold;
+    width: 10%;
 }
 
 .itemsBox {
@@ -52,5 +58,11 @@ export default {
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+
+.backBtn {
+    position: absolute;
+    top: 35%;
+    left: 0%;
 }
 </style>
