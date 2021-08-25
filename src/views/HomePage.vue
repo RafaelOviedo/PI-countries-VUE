@@ -3,7 +3,7 @@
         <!-- <p class="homeTitle">COUNTRIES:</p> -->
         <ul class="countriesBox">
             <li
-                v-for="country in countries"
+                v-for="country in countries.slice(numOfPage, numOfPage + 9)"
                 :key="country.id"
                 class="countryCard"
             >
@@ -28,8 +28,8 @@
         </ul>
 
         <div class="backAndForwardButtons">
-            <button>&#10094;</button>
-            <button>&#10095;</button>
+            <button @click="previousPage">&#10094;</button>
+            <button @click="nextPage">&#10095;</button>
         </div>
 
         <FiltersBar />
@@ -44,8 +44,31 @@ import store from "../store";
 export default {
     name: "HomePage",
     components: { FiltersBar },
+    data() {
+        return {
+            numOfPage: 0,
+            countriesPerPage: 0,
+        }
+    },
     mounted() {
         store.dispatch("getAllCountries");
+        this.countriesPerPage = this.countries.length - 10;
+    },
+    updated() {
+        this.countriesPerPage = this.countries.length - 10;
+    },
+    methods: {
+        previousPage() {
+            if (this.numOfPage > 0) {
+                this.numOfPage = this.numOfPage - 10;
+            }
+        },
+        
+        nextPage() {
+            if (this.numOfPage < this.countriesPerPage) {
+                this.numOfPage = this.numOfPage + 10;
+            }
+        }
     },
     computed: {
         ...mapGetters(["countries"]),
