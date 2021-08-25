@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <p class="homeTitle">COUNTRIES:</p> -->
         <ul class="countriesBox">
             <li
                 v-for="country in countries.slice(numOfPage, numOfPage + 9)"
@@ -27,10 +26,23 @@
             </li>
         </ul>
 
-        <div class="backAndForwardButtons">
-            <button @click="previousPage">&#10094;</button>
-            <button @click="nextPage">&#10095;</button>
+        <div class="previousAndNextButtons">
+            <button 
+            @click="previousPage" 
+            :disabled="numOfPage === 0" 
+            class="enabledPrevButton"
+            :class="numOfPage === 0 ? 'disabledPrevButton' : null"
+            >&#10094;</button>
+
+            <button 
+            @click="nextPage" 
+            :disabled="numOfPage === 240"
+            class="enabledNextButton"
+            :class="numOfPage === 240 ? 'disabledNextButton' : null"
+            >&#10095;</button>
         </div>
+
+        <button @click="refreshCountries" class="refreshButton">Refresh countries</button>
 
         <FiltersBar />
     </div>
@@ -68,6 +80,10 @@ export default {
             if (this.numOfPage < this.countriesPerPage) {
                 this.numOfPage = this.numOfPage + 10;
             }
+        },
+
+        refreshCountries() {
+            store.dispatch("refreshCountries");
         }
     },
     computed: {
@@ -123,12 +139,29 @@ export default {
     border: 3px solid black;
 }
 
-.backAndForwardButtons {
+.previousAndNextButtons {
     display: flex;
     justify-content: space-evenly;
-    transform: translate(200%, 1650%);
+    transform: translate(100%, 1650%);
     width: 15%;
     height: 5vh;
-    /* background: tomato; */
+}
+
+.refreshButton {
+    transform: translate(40%, 2575%);
+}
+
+.enabledPrevButton {
+    cursor: pointer;
+}
+.enabledNextButton {
+    cursor: pointer;
+}
+
+.disabledPrevButton {
+    cursor: not-allowed;
+}
+.disabledNextButton {
+    cursor: not-allowed;
 }
 </style>
