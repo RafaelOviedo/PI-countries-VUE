@@ -94,7 +94,7 @@ export default {
     transform: translate(50%);
     width: 50%;
     height: 15%;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 2px solid black;
     outline: none;
 }
@@ -103,7 +103,7 @@ export default {
     transform: translate(30%);
     width: 60%;
     height: 5%;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 2px solid black;
     outline: none;
 }
@@ -112,7 +112,7 @@ export default {
     transform: translate(116%);
     width: 30%;
     height: 8%;
-    border-radius: 25px;
+    border-radius: 15px;
     border: 2px solid black;
 }
 </style>

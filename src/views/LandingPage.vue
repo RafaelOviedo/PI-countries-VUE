@@ -1,7 +1,7 @@
 <template>
-    <div class="landingTitle">
+    <h2 class="landingTitle">
         Landing Page
-    </div>
+    </h2>
 </template>
 
 <script>
