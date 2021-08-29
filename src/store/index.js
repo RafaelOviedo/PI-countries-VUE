@@ -98,14 +98,14 @@ const store = createStore({
     actions: {
         async getAllCountries({ commit }) {
             const response = await axios.get(
-                "/countries/countries"
+                `${process.env.VUE_APP_API}/countries/countries`
             );
             commit("getAllCountries", response.data);
         },
 
         async getCountryByName({ commit }, payload) {
             const response = await axios.get(
-                "/countries?name=" + payload
+                `${process.env.VUE_APP_API}/countries?name=` + payload
             );
             console.log(response.data);
             commit("getCountryByName", response.data);
@@ -113,7 +113,7 @@ const store = createStore({
 
         async getCountryById({ commit }, payload) {
             const response = await axios.get(
-                "/countries/" + payload
+                `${process.env.VUE_APP_API}/countries/` + payload
             );
             console.log(response.data);
             commit("getCountryById", response.data);
