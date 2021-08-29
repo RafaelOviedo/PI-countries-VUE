@@ -67,7 +67,8 @@ export default {
     },
     methods: {
         async createActivity(payload) {
-            await axios.post(`${process.env.VUE_APP_API}/activity/`, payload);
+            const base = process.env.VUE_APP_API || 'http://localhost:3001';
+            await axios.post(`${base}/activity/`, payload);
             alert("Activity created!")
         },
     },

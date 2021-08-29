@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
+const base = process.env.VUE_APP_API || 'http://localhost:3001';
+
 const store = createStore({
     state: {
         allCountries: [],
@@ -98,14 +100,14 @@ const store = createStore({
     actions: {
         async getAllCountries({ commit }) {
             const response = await axios.get(
-                `${process.env.VUE_APP_API}/countries/countries`
+                `${base}/countries/countries`
             );
             commit("getAllCountries", response.data);
         },
 
         async getCountryByName({ commit }, payload) {
             const response = await axios.get(
-                `${process.env.VUE_APP_API}/countries?name=` + payload
+                `${base}/countries?name=` + payload
             );
             console.log(response.data);
             commit("getCountryByName", response.data);
@@ -113,7 +115,7 @@ const store = createStore({
 
         async getCountryById({ commit }, payload) {
             const response = await axios.get(
-                `${process.env.VUE_APP_API}/countries/` + payload
+                `${base}/countries/` + payload
             );
             console.log(response.data);
             commit("getCountryById", response.data);
