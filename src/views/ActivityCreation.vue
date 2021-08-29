@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         async createActivity(payload) {
-            await axios.post("http://localhost:3001/activity/", payload);
+            await axios.post("/activity/", payload);
             alert("Activity created!")
         },
     },
