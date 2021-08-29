@@ -12,4 +12,6 @@ axios.defaults.baseURL = process.env.VUE_APP_API || 'http://localhost:3001'
 createApp(App)
     .use(router)
     .use(store)
+    .use(axios)
+    .use(dotenv)
     .mount("#app");
