@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
-const base = process.env.VUE_APP_API || 'http://localhost:3001';
+// const base = process.env.VUE_APP_API || 'http://localhost:3001';
 
 const store = createStore({
     state: {
@@ -24,10 +24,25 @@ const store = createStore({
             state.countryDetail = payload;
         },
 
+        createActivity(state, payload) {
+            console.log("CREATE PAYLOAD", payload)
+           state.allCountries.forEach((country) => {
+                if(country.name === payload.countryName[0]) {
+                    country.activities = [{
+                        name: payload.name, 
+                        difficulty: payload.difficulty,
+                        duration: payload.duration,
+                        season: payload.season
+                        }];
+                }
+            console.log("MODIFIED COUNTRIES", state.allCountries)
+            })
+        },
+
         filterByContinent(state, payload) {
             let countries = [...state.allCountries];
             state.filteredCountries = countries.filter(
-                (country) => country.continent === payload
+                (country) => country.region === payload
             );
         },
 
@@ -100,14 +115,15 @@ const store = createStore({
     actions: {
         async getAllCountries({ commit }) {
             const response = await axios.get(
-                `${base}/countries/countries`
+                `https://restcountries.eu/rest/v2/all`
             );
+            console.log("RESPONSE.DATA", response.data);
             commit("getAllCountries", response.data);
         },
 
         async getCountryByName({ commit }, payload) {
             const response = await axios.get(
-                `${base}/countries?name=` + payload
+                `https://restcountries.eu/rest/v2/name/` + payload
             );
             console.log(response.data);
             commit("getCountryByName", response.data);
@@ -115,10 +131,14 @@ const store = createStore({
 
         async getCountryById({ commit }, payload) {
             const response = await axios.get(
-                `${base}/countries/` + payload
+                `https://restcountries.eu/rest/v2/alpha/` + payload
             );
-            console.log(response.data);
+            console.log("COUNTRY DETAIL", response.data)
             commit("getCountryById", response.data);
+        },
+
+        createActivity({ commit }, payload) {
+            commit("createActivity", payload);
         },
 
         refreshCountries({ commit }) {
