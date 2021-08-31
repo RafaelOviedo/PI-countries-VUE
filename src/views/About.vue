@@ -2,11 +2,10 @@
     <div>
         <div class="textBox">
         <h3>About</h3>
-        <p>This page was created to practice abilities learned in the Henry Bootcamp.
+        <p>This page was created to practice different functionalities and new technologies.
             <br>
             <br>
-            In this page were used multiple technologies as React-Redux, NodeJs, 
-            Express and Sequelize. 
+            In this page were used multiple technologies as HTML, CSS, Vue and Vuex, 
             <br>
             <br>
             Here you can:
