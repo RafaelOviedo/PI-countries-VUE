@@ -10,16 +10,16 @@
                 <router-link
                     :to="{
                         name: 'CountryDetail',
-                        params: { id: country.Id },
+                        params: { id: country.alpha3Code },
                     }"
                     class="countryName"
                     >{{ country.name }}</router-link
                 >
                 <br />
-                <p class="countryContinent">{{ country.continent }}</p>
+                <p class="countryContinent">{{ country.region }}</p>
                 <br />
                 <img
-                    :src="`${country.flagImage}`"
+                    :src="`${country.flag}`"
                     alt="country flag"
                     class="flagImage"
                 />
