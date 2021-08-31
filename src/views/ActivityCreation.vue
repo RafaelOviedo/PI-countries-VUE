@@ -49,8 +49,7 @@
 
 <script>
 import { mapState } from "vuex";
-// import store from "../store/index";
-import axios from "axios";
+import store from "../store/index";
 
 export default {
     name: "ActivityCreation",
@@ -66,9 +65,9 @@ export default {
         };
     },
     methods: {
-        async createActivity(payload) {
-            const base = process.env.VUE_APP_API || 'http://localhost:3001';
-            await axios.post(`${base}/activity/`, payload);
+        createActivity(payload) {
+            // const base = process.env.VUE_APP_API || 'http://localhost:3001';
+            store.dispatch('createActivity', payload);
             alert("Activity created!")
         },
     },
