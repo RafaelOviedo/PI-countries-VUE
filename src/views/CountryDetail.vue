@@ -5,11 +5,11 @@
             <div class="countryDetailBox">
                 <p>Name: {{ countryDetail.name }}</p>
                 <p>Capital: {{ countryDetail.capital }}</p>
-                <p>Continent: {{ countryDetail.continent }}</p>
-                <p>Sub Region: {{ countryDetail.subRegion }}</p>
+                <p>Continent: {{ countryDetail.region }}</p>
+                <p>Sub Region: {{ countryDetail.subregion }}</p>
                 <p>Population: {{ countryDetail.population }}</p>
                 <img
-                    :src="`${countryDetail.flagImage}`"
+                    :src="`${countryDetail.flag}`"
                     alt="Flag"
                     class="flagImage"
                 />
@@ -17,8 +17,8 @@
             <ul class="countryActivitiesBox">
                 <h3 class="activitiesTitle">Activity/ies</h3>
                 <li
-                    v-for="(activity, id) in countryDetail.activities"
-                    :key="id"
+                    v-for="(activity, index) in countryDetail.activities"
+                    :key="index"
                     class="listItem"
                 >
                     <div class="itemsBox">
