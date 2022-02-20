@@ -11,9 +11,6 @@
                 <router-link class="navItem" :to="{ name: 'HomePage' }"
                     >Home</router-link
                 >
-                <router-link class="navItem" :to="{ name: 'ActivityCreation' }"
-                    >Create activity</router-link
-                >
                 <router-link class="navItem" :to="{ name: 'About' }"
                     >About</router-link
                 >

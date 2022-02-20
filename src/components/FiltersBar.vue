@@ -22,25 +22,6 @@
             </button>
         </div>
 
-        <div class="activitiesButtons">
-            <p>Activity:</p>
-            <button @click="filterByActivity('parachute')" class="cBtn">
-                Parachute
-            </button>
-            <button @click="filterByActivity('horse')" class="cBtn">
-                Horse
-            </button>
-            <button @click="filterByActivity('surf')" class="cBtn">
-                Surf
-            </button>
-            <button @click="filterByActivity('ski')" class="cBtn">
-                Ski
-            </button>
-            <button @click="filterByActivity('running')" class="cBtn">
-                Running
-            </button>
-        </div>
-
         <p class="orderByTitle">Order By</p>
         <div class="byLetterButtons">
             <p>Letter:</p>
@@ -113,17 +94,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(20%, 0%);
-    width: 40%;
-    height: 40%;
-    border-radius: 20px;
-}
-
-.activitiesButtons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    transform: translate(140%, -100%);
+    transform: translate(75%, 0%);
     width: 40%;
     height: 40%;
     border-radius: 20px;
@@ -133,7 +104,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(20%, -200%);
+    transform: translate(20%, 0%);
     width: 40%;
     height: 20%;
     border-radius: 20px;
@@ -143,7 +114,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transform: translate(140%, -300%);
+    transform: translate(140%, -100%);
     width: 40%;
     height: 20%;
     border-radius: 20px;
@@ -161,6 +132,6 @@ export default {
 }
 
 .orderByTitle {
-    transform: translate(0%, -950%);
+    transform: translate(0%, 100%);
 }
 </style>
