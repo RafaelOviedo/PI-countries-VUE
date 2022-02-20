@@ -115,7 +115,7 @@ const store = createStore({
     actions: {
         async getAllCountries({ commit }) {
             const response = await axios.get(
-                `https://restcountries.eu/rest/v2/all`
+                `https://restcountries.com/v2/all`
             );
             console.log("RESPONSE.DATA", response.data);
             commit("getAllCountries", response.data);
@@ -123,7 +123,7 @@ const store = createStore({
 
         async getCountryByName({ commit }, payload) {
             const response = await axios.get(
-                `https://restcountries.eu/rest/v2/name/` + payload
+                `https://restcountries.com/v2/name/` + payload
             );
             console.log(response.data);
             commit("getCountryByName", response.data);
@@ -131,7 +131,7 @@ const store = createStore({
 
         async getCountryById({ commit }, payload) {
             const response = await axios.get(
-                `https://restcountries.eu/rest/v2/alpha/` + payload
+                `https://restcountries.com/v2/alpha/` + payload
             );
             console.log("COUNTRY DETAIL", response.data)
             commit("getCountryById", response.data);
