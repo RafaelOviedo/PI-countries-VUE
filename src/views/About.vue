@@ -5,7 +5,7 @@
         <p>This page was created to practice different functionalities and new technologies.
             <br>
             <br>
-            In this page were used multiple technologies as HTML, CSS, Vue and Vuex, 
+            In this page were used multiple technologies as HTML, CSS, Vue and Vuex
             <br>
             <br>
             Here you can:
@@ -13,13 +13,11 @@
             <br>
             - Search countries by name
             <br>
-            - Filter countries by continent and by activity (once created)
+            - Filter countries by continent
             <br>
             - Order countries by letter and population 
             <br>
-            - Create activities for one country, or multiple countries at once
-            <br>
-            - Check the country details and its respective activities
+            - Check the country details
             
         </p>
         </div>
@@ -74,7 +72,7 @@ export default {
     top: 80vh;
     left: 15%;
     width: 5%;
-    height: 11%;
+    height: 10%;
     background: white;
     border-radius: 50%;
 }
@@ -83,7 +81,7 @@ export default {
     top: 80vh;
     left: 20%;
     width: 5%;
-    height: 11%;
+    height: 10%;
     background: white;
     border-radius: 50%;
 }

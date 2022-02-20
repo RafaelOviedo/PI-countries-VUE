@@ -148,7 +148,7 @@ export default {
 }
 
 .refreshButton {
-    transform: translate(40%, 2575%);
+    transform: translate(40%, 2700%);
 }
 
 .enabledPrevButton {

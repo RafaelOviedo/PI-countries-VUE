@@ -14,7 +14,7 @@
                     class="flagImage"
                 />
             </div>
-            <ul class="countryActivitiesBox">
+            <!-- <ul class="countryActivitiesBox">
                 <h3 class="activitiesTitle">Activity/ies</h3>
                 <li
                     v-for="(activity, index) in countryDetail.activities"
@@ -28,7 +28,7 @@
                         <p>Season: {{ activity.season }}</p>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 </template>
@@ -58,13 +58,13 @@ export default {
     left: 10%;
     width: 80%;
     height: 70vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .countryDetailBox {
     position: absolute;
     top: 10%;
-    left: 10%;
+    left: 35%;
     width: 30%;
     height: 80%;
     border: 1px solid black;
